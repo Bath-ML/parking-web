@@ -38,39 +38,41 @@
     </div>
 
     <h1>Then a car park</h1>
-    <select id="mySelect" onchange="myFunction()">
-      <option value="Odd Down P+R">Odd Down P+R
-        <option value="SouthGate Rail CP">SouthGate Rail CP
-          <option value="Lansdown P+R">Lansdown P+R
-            <option value="Charlotte Street CP">Charlotte Street CP
-              <option value="Podium CP">Podium CP
-                <option value="Avon Street CP">Avon Street CP
-                  <option value="SouthGate General CP">SouthGate General CP
-                    <option value="Newbridge P+R">Newbridge P+R
-                    </select>
+    <select id="carpark-select" onchange="changeCarpark()">
+      <option value="Odd Down P+R">Odd Down P+R</option>
+      <option value="SouthGate Rail CP">SouthGate Rail CP</option>
+      <option value="Lansdown P+R">Lansdown P+R</option>
+      <option value="Charlotte Street CP">Charlotte Street CP</option>
+      <option value="Podium CP">Podium CP</option>
+      <option value="Avon Street CP">Avon Street CP</option>
+      <option value="SouthGate General CP">SouthGate General CP</option>
+      <option value="Newbridge P+R">Newbridge P+R</option>
+    </select>
 
-                    <p id="output"></p>
+    <p id="output"></p>
 
-                    <script>
-                      function myFunction() {
-                        let modelResult = 75;
-                        var x = document.getElementById("mySelect").value;
-                        document.getElementById("output").innerHTML = "We think it's likely that " + x + " is " + modelResult + " % full";
-                      }
-                    </script>
+    <script>
+      function changeCarpark() {
+        let modelResult = 75;
+        var carpark = document.getElementById("carpark-select").value;
+        document.getElementById("output").innerHTML = "We think it's likely that " + carpark + " is " + modelResult + " % full";
+      }
+    </script>
 
-                    <div id="CarParkLat"></div>
-                    <div id="CarParkLong"></div>
+    <div id="CarParkLat"></div>
+    <div id="CarParkLong"></div>
 
-                    <script>
-                      let CarParks = [[-2.38389427175, 51.352935229],
-                        [-2.35939373665, 51.3783156754],
-                        [-2.38697144144, 51.4113171399],
-                        [-2.36860892385, 51.3843384358],
-                        [-2.35906657317, 51.3842422001],
-                        [-2.36225609279, 51.3787114813],
-                        [-2.35893376096, 51.3782901111],
-                        [-2.40590782211, 51.3902305335]]
+    <script>
+      let CarParks = [
+        [-2.38389427175, 51.352935229],
+        [-2.35939373665, 51.3783156754],
+        [-2.38697144144, 51.4113171399],
+        [-2.36860892385, 51.3843384358],
+        [-2.35906657317, 51.3842422001],
+        [-2.36225609279, 51.3787114813],
+        [-2.35893376096, 51.3782901111],
+        [-2.40590782211, 51.3902305335]
+      ]
 let lat = 51.385;       //Initial coordinate
 let long = -2.357;      //Initial coordinate
 document.getElementById("CarParkLong").innerHTML = CarParks[0][0];
@@ -86,13 +88,16 @@ function initMap() {
     map: map
   });
 }
-                    </script>
+    </script>
 
-                    <script async defer
-                      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
-                    </script>
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
+    </script>
+
+    <div id="container">
+      <div id="map"></div>
+    </div>
 
 
-
-                  </body>
-                </html>
+  </body>
+</html>
