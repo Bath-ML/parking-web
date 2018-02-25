@@ -10,7 +10,10 @@ function changeCarpark() {
 }
 
 function initMap() {
-  var Coordinates = { lat: lat, lng: long };
+  changeMap();
+}
+function changeMap() {
+  var Coordinates = { lat: currentCarpark.lat, lng: currentCarpark.long };
   var map = new google.maps.Map(document.getElementById('map'), {
     zoom: 13,
     center: Coordinates
@@ -32,7 +35,14 @@ const carparks = [
   { name: 'Newbridge P+R', long: -2.40590782211, lat: 51.3902305335 }
 ];
 
-let lat = carparks[0].lat;
-let long = carparks[0].long;
+let currentCarpark = carparks[0];
 
-document.getElementById('CarParkLong').innerHTML = CarParks[0][0];
+$('#carpark-select').change(e => {
+  const carparkName = $('#carpark-select')
+    .find(':selected')
+    .text();
+  currentCarpark = carparks.filter(cp => cp.name == carparkName)[0];
+  console.log('currentCarpark', currentCarpark);
+  changeCarpark();
+  changeMap();
+});
