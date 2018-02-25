@@ -12,6 +12,7 @@ function changeCarpark() {
 function initMap() {
   changeMap();
 }
+
 function changeMap() {
   var Coordinates = { lat: currentCarpark.lat, lng: currentCarpark.long };
   var map = new google.maps.Map(document.getElementById('map'), {
@@ -35,7 +36,7 @@ const carparks = [
   { name: 'Newbridge P+R', long: -2.40590782211, lat: 51.3902305335 }
 ];
 
-let currentCarpark = carparks[0];
+let currentCarpark = { lat: 51.385, long: -2.357 };
 
 $('#carpark-select').change(e => {
   const carparkName = $('#carpark-select')
