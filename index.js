@@ -2,8 +2,37 @@ $(function() {
   $('#datetimepicker').datetimepicker();
 });
 
+const requestExpectedValue = () => {
+  const url = 'http://localhost:8080/parking';
+  const payload = {
+    carpark: 'Avon Street CP',
+    timeOfDay: 12.5,
+    weekDay: 4,
+    weekNumber: 42,
+    rugby: true,
+    rugbyHomeWin: false,
+    cityEvents: 12,
+    weather: {
+      rain: false,
+      fog: true,
+      snow: false,
+      precipitation: 23
+    }
+  };
+  $.ajax({
+    type: 'POST',
+    url: url,
+    contentType: 'application/json; charset=utf-8',
+    data: JSON.stringify(payload),
+    success: function(res) {
+      console.log(res.json());
+    }
+  });
+  return 75;
+};
+
 function changeCarpark() {
-  let modelResult = 75;
+  const modelResult = requestExpectedValue();
   var carpark = document.getElementById('carpark-select').value;
   document.getElementById('output').innerHTML =
     "We think it's likely that " + carpark + ' is ' + modelResult + ' % full';
