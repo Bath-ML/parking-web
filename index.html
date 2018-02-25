@@ -29,7 +29,6 @@
             </div>
           </div>
         </div>
-        <script src="index.js" type="text/javascript"></script>
       </div>
     </div>
 
@@ -45,50 +44,15 @@
       <option value="Newbridge P+R">Newbridge P+R</option>
     </select>
 
-    <p id="output"></p>
-
-    <div id="CarParkLat"></div>
-    <div id="CarParkLong"></div>
-
-    <script>
-const carparks = [
-  {name:"Odd Down P+R", long: -2.38389427175, lat:51.352935229},
-  {name:"SouthGate Rail CP",long:-2.35939373665, lat: 51.3783156754},
-  {name:"Lansdown P+R",long:-2.38697144144, lat: 51.4113171399},
-  {name:"Charlotte Street CP",long:-2.36860892385, lat:51.3843384358},
-  {name:"Podium CP",long:-2.35906657317, lat: 51.3842422001},
-  {name:"Avon Street CP",long:-2.36225609279, lat: 51.3787114813},
-  {name:"SouthGate General CP",long:-2.35893376096, lat: 51.3782901111},
-  {name:"Newbridge P+R",long:-2.40590782211, lat: 51.3902305335}
-]
-
-let lat = carparks[0].lat
-let long = carparks[0].long
-
-document.getElementById("CarParkLong").innerHTML = CarParks[0][0];
-document.getElementById("CarParkLat").innerHTML = CarParks[0][1];
-
-function initMap() {
-  var Coordinates = {lat: lat, lng: long};
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
-    center: Coordinates
-  });
-  var marker = new google.maps.Marker({
-    position: Coordinates,
-    map: map
-  });
-}
-    </script>
-
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
-    </script>
+    <p id="output">ooi</p>
 
     <div id="container">
       <div id="map"></div>
     </div>
-
+    <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
+    </script>
 
   </body>
+  <script src="index.js" type="text/javascript"></script>
 </html>
