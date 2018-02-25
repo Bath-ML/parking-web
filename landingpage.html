@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Bath Parking</title>
-
 <link rel="stylesheet" type="text/css" href="mystyle.css">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -13,12 +12,11 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-
 </head>
+
 <body>
-
+<h1>We will predict how busy the car park is</h1>
 <h1>Please choose a data and time</h1>
-
 <div class="container">
     <div class="row">
         <div class='col-sm-6'>
@@ -38,12 +36,35 @@
         </script>
     </div>
 </div>
-<h1>Then a car park</h1>
-<h1>We will then tell you how busy the car park is</h1>
 
+<h1>Then a car park</h1>
+<select id="mySelect" onchange="myFunction()">
+  <option value="Odd Down P+R">Odd Down P+R
+  <option value="SouthGate Rail CP">SouthGate Rail CP
+  <option value="Lansdown P+R">Lansdown P+R
+  <option value="Charlotte Street CP">Charlotte Street CP
+  <option value="Podium CP">Podium CP
+  <option value="Avon Street CP">Avon Street CP
+  <option value="SouthGate General CP">SouthGate General CP
+  <option value="Newbridge P+R">Newbridge P+R
+</select>
+
+<p id="output"></p>
+
+<script>
+function myFunction() {
+    let modelResult = 75;
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("output").innerHTML = "We think it's likely that " + x + " is " + modelResult + " % full";
+}
+</script>
+
+<div id="CarParkLat"></div>
+<div id="CarParkLong"></div>
 
 <div id="container">
     <div id="map"></div>
+    <!--
     <div id="text-boxes">
         <div class="car-park-label">1 Odd Down P+R</div>
         <div class="car-park-label">2 SouthGate Rail CP</div>
@@ -54,12 +75,11 @@
         <div class="car-park-label">7 SouthGate General CP</div>
         <div class="car-park-label">8 Newbridge P+R</div>
     </div>
+    -->
 </div>
 
-<div id="CarParkLatLong"></div>
-
-    <script>
-    var CarParks = [[-2.38389427175, 51.352935229],
+<script>
+    let CarParks = [[-2.38389427175, 51.352935229],
                     [-2.35939373665, 51.3783156754],
                     [-2.38697144144, 51.4113171399],
                     [-2.36860892385, 51.3843384358],
@@ -67,26 +87,26 @@
                     [-2.36225609279, 51.3787114813],
                     [-2.35893376096, 51.3782901111],
                     [-2.40590782211, 51.3902305335]]
-
-document.getElementById("CarParkLatLong").innerHTML = CarParks[0];
-
+    let lat = 51.385;       //Initial coordinate
+    let long = -2.357;      //Initial coordinate
+document.getElementById("CarParkLong").innerHTML = CarParks[0][0];
+document.getElementById("CarParkLat").innerHTML = CarParks[0][1];
       function initMap() {
-        var uluru = {lat: 51.385, lng: -2.357};
+        var Coordinates = {lat: lat, lng: long};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 13,
-          center: uluru
+          center: Coordinates
         });
         var marker = new google.maps.Marker({
-          position: uluru,
+          position: Coordinates,
           map: map
         });
       }
     </script>
+
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
     </script>
-
-<h1>We think it's likely that {chosen car park} is {var}% full</h1>
 
 
 
