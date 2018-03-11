@@ -1,12 +1,12 @@
 #container{
-        height: 800px;
+        height: 250px;
         width: 100%;
 }
 
 #map {
          display: inline-block;
         height: 100%;
-        width: 65%;
+        width: 100%;
        }
 
 #text-boxes {

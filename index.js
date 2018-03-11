@@ -46,7 +46,7 @@ function initMap() {
 function changeMap() {
   var Coordinates = { lat: currentCarpark.lat, lng: currentCarpark.long };
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 13,
+    zoom: 16,
     center: Coordinates
   });
   var marker = new google.maps.Marker({
