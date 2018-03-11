@@ -19,23 +19,21 @@ const requestExpectedValue = () => {
       precipitation: 23
     }
   };
-  $.ajax({
+  return $.ajax({
     type: 'POST',
     url: url,
     contentType: 'application/json; charset=utf-8',
-    data: JSON.stringify(payload),
-    success: function(res) {
-      console.log(res.json());
-    }
+    data: JSON.stringify(payload)
   });
-  return 75;
 };
 
 function changeCarpark() {
-  const modelResult = requestExpectedValue();
-  var carpark = document.getElementById('carpark-select').value;
-  document.getElementById('output').innerHTML =
-    "We think it's likely that " + carpark + ' is ' + modelResult + ' % full';
+  requestExpectedValue().then(json => {
+    const carpark = document.getElementById('carpark-select').value;
+    const percentage = json.prediction.probabilities[json.prediction.bucket];
+    const html = `${carpark} is ${percentage}% full.`;
+    document.getElementById('output').innerHTML = html;
+  });
 }
 
 function initMap() {
@@ -67,12 +65,11 @@ const carparks = [
 
 let currentCarpark = { lat: 51.385, long: -2.357 };
 
-$('#carpark-select').change(e => {
+$('#carpark-select').change(() => {
   const carparkName = $('#carpark-select')
     .find(':selected')
     .text();
   currentCarpark = carparks.filter(cp => cp.name == carparkName)[0];
-  console.log('currentCarpark', currentCarpark);
   changeCarpark();
   changeMap();
 });
