@@ -20,6 +20,10 @@
         height: 12%;
         width: 100%;
 }
+.precipitation-container{
+        display: inline-block;
+        margin-left: 20px;
+}
 
 
 

@@ -16,9 +16,9 @@
   </head>
 
   <body>
-    <h1>Predict how busy the car park is</h1>
-    <h1>Please choose a date and time</h1>
     <div class="container">
+      <h1>Predict how busy Bath's car parks will be</h1>
+      <h2>When do you want to park?</h2>
       <div class="row">
         <div class='col-sm-6'>
           <div class="form-group">
@@ -31,24 +31,51 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <h1>Then a car park</h1>
-    <select id="carpark-select" onchange="changeCarpark()">
-      <option value="Odd Down P+R">Odd Down P+R</option>
-      <option value="SouthGate Rail CP">SouthGate Rail CP</option>
-      <option value="Lansdown P+R">Lansdown P+R</option>
-      <option value="Charlotte Street CP">Charlotte Street CP</option>
-      <option value="Podium CP">Podium CP</option>
-      <option value="Avon Street CP">Avon Street CP</option>
-      <option value="SouthGate General CP">SouthGate General CP</option>
-      <option value="Newbridge P+R">Newbridge P+R</option>
-    </select>
+      <h2>What will the weather be like at that time?</h2>
+      <div class="row form-inline">
+        <div class="col-sm-6 form-group">
+          <div class="checkbox">
+            <label>
+              Rain: <input type="checkbox" name="rain" value="true">
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              Fog: <input type="checkbox" name="fog" value="true">
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              Snow: <input type="checkbox" name="snow" value="true">
+            </label>
+          </div>
+          <div class="precipitation-container">
+              <label>
+                Daily Precipitation (mm):
+                <input type="number" min="1" max="100" value="10" name="precipitation">
+              </label>
+          </div>
+        </div>
+      </div>
 
-    <p id="output"></p>
 
-    <div id="container">
-      <div id="map"></div>
+      <h2>Which car park do you want to predict for?</h2>
+      <select id="carpark-select">
+        <option value="Odd Down P+R">Odd Down P+R</option>
+        <option value="SouthGate Rail CP">SouthGate Rail CP</option>
+        <option value="Lansdown P+R">Lansdown P+R</option>
+        <option value="Charlotte Street CP">Charlotte Street CP</option>
+        <option value="Podium CP">Podium CP</option>
+        <option value="Avon Street CP">Avon Street CP</option>
+        <option value="SouthGate General CP">SouthGate General CP</option>
+        <option value="Newbridge P+R">Newbridge P+R</option>
+      </select>
+
+      <p id="output"></p>
+      <div id="container">
+        <div id="map"></div>
+      </div>
     </div>
 
     <script async defer

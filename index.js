@@ -27,7 +27,7 @@ const requestExpectedValue = () => {
   });
 };
 
-function changeCarpark() {
+function getAndDisplayPrediction() {
   requestExpectedValue().then(json => {
     const carpark = document.getElementById('carpark-select').value;
     const percentage = json.prediction.probabilities[json.prediction.bucket];
@@ -70,6 +70,6 @@ $('#carpark-select').change(() => {
     .find(':selected')
     .text();
   currentCarpark = carparks.filter(cp => cp.name == carparkName)[0];
-  changeCarpark();
+  getAndDisplayPrediction();
   changeMap();
 });
