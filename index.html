@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Bath Carparks Availability</title>
-    <link rel="stylesheet" type="text/css" href="index.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
-  </head>
+<head>
+  <title>Bath Carparks Availability</title>
+  <link rel="stylesheet" type="text/css" href="index.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/js/bootstrap-datetimepicker.min.js"></script>
+</head>
 
-  <body>
-    <div class="container">
-      <h1>Predict how busy Bath's car parks will be</h1>
-      <h2>When do you want to park?</h2>
-      <div class="row">
-        <div class='col-sm-12'>
-          <div class="form-group">
-            <div class='input-group date' id='datetimepicker'>
-              <input type='text' class="form-control" />
-              <span class="input-group-addon">
+<body>
+<div class="container">
+  <h1>Predict how busy Bath's car parks will be</h1>
+  <h2>When do you want to park?</h2>
+  <div class="row">
+    <div class='col-sm-12'>
+      <div class="form-group">
+        <div class='input-group date' id='datetimepicker'>
+          <input type='text' class="form-control" />
+          <span class="input-group-addon">
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <h2>What will the weather be like at that time?</h2>
-      <div class="row form-inline">
-        <div class="col-sm-12 form-group" id="weather-form">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="rain" value="true"> Rain
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="fog" value="true"> Fog
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="snow" value="true"> Snow
-            </label>
-          </div>
-          <div class="precipitation-container">
-              <label>
-                Daily Precipitation (mm):
-                <input type="number" min="1" max="100" value="10" name="precipitation">
-              </label>
-          </div>
-        </div>
-      </div>
-
-      <h2>Events & Other Factors</h2>
-      <div class="row form-inline">
-        <div class="col-sm-12 form-group" id="events-form">
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="rugby" value="true"> Rugby Match On This Day
-            </label>
-          </div>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="rugbyHomeWin" value="true"> Bath Won?
-            </label>
-          </div>
-          <div class="events-container">
-            <label>
-              Events on this day:
-              <input type="number" min="1" max="50" value="15" name="events">
-            </label>
-          </div>
-        </div>
-      </div>
-
-
-      <h2>Which car park do you want to predict for?</h2>
-      <div class="row">
-        <div class="col-sm-6">
-          <select id="carpark-select">
-            <option value="Odd Down P+R">Odd Down P+R</option>
-            <option value="SouthGate Rail CP">SouthGate Rail CP</option>
-            <option value="Lansdown P+R">Lansdown P+R</option>
-            <option value="Charlotte Street CP">Charlotte Street CP</option>
-            <option value="Podium CP">Podium CP</option>
-            <option value="Avon Street CP">Avon Street CP</option>
-            <option value="SouthGate General CP">SouthGate General CP</option>
-            <option value="Newbridge P+R">Newbridge P+R</option>
-          </select>
-
-          <br />
-          <br />
-
-          <p id="output"></p>
-        </div>
-        <div class="col-sm-6">
-          <div id="container">
-            <div id="map"></div>
-          </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
-    </script>
+  <h2>What will the weather be like at that time?</h2>
+  <div class="row form-inline">
+    <div class="col-sm-12 form-group" id="weather-form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="rain" value="true"> Rain
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="fog" value="true"> Fog
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="snow" value="true"> Snow
+        </label>
+      </div>
+      <div class="precipitation-container">
+        <label>
+          Daily Precipitation (mm):
+          <input type="number" min="1" max="100" value="10" name="precipitation">
+        </label>
+      </div>
+    </div>
+  </div>
 
-  </body>
-  <script src="index.js" type="text/javascript"></script>
+  <h2>Events & Other Factors</h2>
+  <div class="row form-inline">
+    <div class="col-sm-12 form-group" id="events-form">
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="rugby" value="true"> Rugby Match On This Day
+        </label>
+      </div>
+      <div class="checkbox">
+        <label>
+          <input type="checkbox" name="rugbyHomeWin" value="true"> Bath Won?
+        </label>
+      </div>
+      <div class="events-container">
+        <label>
+          Events on this day:
+          <input type="number" min="1" max="50" value="15" name="events">
+        </label>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>Which car park do you want to predict for?</h2>
+  <div class="row">
+    <div class="col-sm-6">
+      <select id="carpark-select">
+        <option value="Odd Down P+R">Odd Down P+R</option>
+        <option value="SouthGate Rail CP">SouthGate Rail CP</option>
+        <option value="Lansdown P+R">Lansdown P+R</option>
+        <option value="Charlotte Street CP">Charlotte Street CP</option>
+        <option value="Podium CP">Podium CP</option>
+        <option value="Avon Street CP">Avon Street CP</option>
+        <option value="SouthGate General CP">SouthGate General CP</option>
+        <option value="Newbridge P+R">Newbridge P+R</option>
+      </select>
+
+      <br />
+      <br />
+
+      <p id="output"></p>
+    </div>
+    <div class="col-sm-6">
+      <div id="container">
+        <div id="map"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC5Iqpq42NPQd5e3pRCs-JqhNwhV03naW8&callback=initMap">
+</script>
+
+</body>
+<script src="index.js" type="text/javascript"></script>
 </html>

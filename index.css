@@ -1,28 +1,28 @@
 #container{
-        height: 250px;
-        width: 100%;
+  height: 250px;
+  width: 100%;
 }
 
 #map {
-         display: inline-block;
-        height: 100%;
-        width: 100%;
-       }
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+}
 
 #text-boxes {
-         display: inline-block;
-        height: 100%;
-        width: 25%;
+  display: inline-block;
+  height: 100%;
+  width: 25%;
 }
 
 .car-park-label{
-        display: inline-block;
-        height: 12%;
-        width: 100%;
+  display: inline-block;
+  height: 12%;
+  width: 100%;
 }
 .precipitation-container, .events-container{
-        display: inline-block;
-        margin-left: 20px;
+  display: inline-block;
+  margin-left: 20px;
 }
 .checkbox label{
   margin-left: 10px;
@@ -32,15 +32,15 @@
 
 
 #floating-panel {
-          position: absolute;
-          top: 10px;
-          left: 25%;
-          z-index: 5;
-          background-color: #fff;
-          padding: 5px;
-          border: 1px solid #999;
-          text-align: center;
-          font-family: 'Roboto','sans-serif';
-          line-height: 30px;
-          padding-left: 10px;
-        }
+  position: absolute;
+  top: 10px;
+  left: 25%;
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
