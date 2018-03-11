@@ -4,19 +4,20 @@ $(function() {
 
 const requestExpectedValue = () => {
   const url = 'http://localhost:8080/parking';
+  const dateSelected = $('#datetimepicker').data("DateTimePicker").date();
   const payload = {
-    carpark: 'Avon Street CP',
-    timeOfDay: 12.5,
-    weekDay: 4,
-    weekNumber: 42,
+    carpark: $('#carpark-select').val(),
+    timeOfDay: dateSelected.hour() + (dateSelected.minute()/60),
+    weekDay: dateSelected.day(),
+    weekNumber: dateSelected.week(),
     rugby: true,
     rugbyHomeWin: false,
     cityEvents: 12,
     weather: {
-      rain: false,
-      fog: true,
-      snow: false,
-      precipitation: 23
+      rain: $('#weather-form [name=rain]').is(":checked"),
+      fog: $('#weather-form [name=fog]').is(":checked"),
+      snow: $('#weather-form [name=snow]').is(":checked"),
+      precipitation: parseInt($('#weather-form [name=precipitation]').val())
     }
   };
   return $.ajax({
