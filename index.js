@@ -1,5 +1,7 @@
 $(function() {
   $('#datetimepicker').datetimepicker();
+  //Default to current date / time:
+  $('#datetimepicker').data("DateTimePicker").date( new Date());
 });
 
 const requestExpectedValue = () => {
