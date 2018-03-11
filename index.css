@@ -20,7 +20,7 @@
         height: 12%;
         width: 100%;
 }
-.precipitation-container{
+.precipitation-container, .events-container{
         display: inline-block;
         margin-left: 20px;
 }

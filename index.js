@@ -8,11 +8,11 @@ const requestExpectedValue = () => {
   const payload = {
     carpark: $('#carpark-select').val(),
     timeOfDay: dateSelected.hour() + (dateSelected.minute()/60),
-    weekDay: dateSelected.day(),
+    weekDay: dateSelected.day() + 1,
     weekNumber: dateSelected.week(),
-    rugby: true,
-    rugbyHomeWin: false,
-    cityEvents: 12,
+    rugby: $('#events-form [name=rugby]').is(":checked"),
+    rugbyHomeWin: $('#events-form [name=rugbyHomeWin]').is(":checked"),
+    cityEvents: parseInt($('#events-form [name=events]').val()),
     weather: {
       rain: $('#weather-form [name=rain]').is(":checked"),
       fog: $('#weather-form [name=fog]').is(":checked"),
@@ -74,6 +74,6 @@ $('#carpark-select').change(() => {
   getAndDisplayPrediction();
   changeMap();
 });
-$('#weather-form input').change(() => {
+$('#weather-form input, #events-form input').change(() => {
   getAndDisplayPrediction();
 });
