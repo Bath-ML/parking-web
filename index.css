@@ -24,6 +24,9 @@
         display: inline-block;
         margin-left: 20px;
 }
+.checkbox label{
+  margin-left: 10px;
+}
 
 
 
