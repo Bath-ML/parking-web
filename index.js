@@ -73,3 +73,6 @@ $('#carpark-select').change(() => {
   getAndDisplayPrediction();
   changeMap();
 });
+$('#weather-form input').change(() => {
+  getAndDisplayPrediction();
+});
